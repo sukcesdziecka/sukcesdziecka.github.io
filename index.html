@@ -560,11 +560,7 @@
 	src="https://www.facebook.com/tr?id=900385469062167&ev=PageView&noscript=1"
 	/></noscript>
 	<!-- End Meta Pixel Code -->
-	<script>
-document.getElementById("buy-button").addEventListener("click", function() {
-  fbq('track', 'InitiateCheckout');
-});
-</script>
+	
 <script>
 fbq('track', 'ViewContent');
 </script>
@@ -810,5 +806,10 @@ fbq('track', 'ViewContent');
     </div>
   </section>
 
+<script>
+document.getElementById("buy-button").addEventListener("click", function() {
+  fbq('track', 'InitiateCheckout');
+});
+</script>
 </body>
 </html>
