@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kod Sukcesu Dziecka</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    /* ================= GLOBAL RESET ================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #f9fafb;
+      line-height: 1.6;
+    }
+
+    /* ================= HEADLINE SECTION ================= */
+    .headline-section {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 20px 60px;
+      background: radial-gradient(circle at top, #111827, #0f172a);
+      text-align: center;
+    }
+
+    .headline-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .headline-section h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 34px;
+    }
+
+    .headline-sub {
+      font-size: 1.25rem;
+      color: #d1d5db;
+      margin-bottom: 30px;
+      line-height: 1.55;
+    }
+
+    .headline-fantasy {
+      font-size: 1.05rem;
+      color: #9ca3af;
+      font-style: italic;
+      margin-top: 10px;
+      line-height: 1.5;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ================= SOCIAL PROOF ================= */
+    .proof-block {
+      margin-top: 40px;
+      background: #111827;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      text-align: left;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .proof-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .proof-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #f59e0b;
+    }
+
+    .proof-name-verified {
+      font-weight: 600;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1rem;
+    }
+
+    .verified-img {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+
+    .proof-quote {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    /* ================= BADGES ================= */
+    .badges {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .badge {
+      border: 1px solid #1f2937;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #111827;
+    }
+
+    /* ================= OFFER SECTION ================= */
+    .offer-section {
+      padding: 90px 20px;
+      background: #020617;
+    }
+
+    .offer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* COVER */
+    .offer-cover {
+      text-align: center;
+    }
+
+    .offer-cover-img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 14px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .offer-cover-promise {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+
+    /* COPY */
+    .offer-copy h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .offer-promise {
+      font-size: 1.1rem;
+      color: #d1d5db;
+      margin-bottom: 20px;
+    }
+
+    .offer-bullets {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .offer-bullets li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #e5e7eb;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .offer-bullets li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #f59e0b;
+      font-weight: bold;
+    }
+
+    /* PRICE BLOCK */
+    .offer-price-box {
+      margin-bottom: 14px;
+    }
+
+    .price-today {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #f59e0b;
+      margin-bottom: 6px;
+    }
+
+    .price-today span {
+      font-size: 2.2rem;
+    }
+
+    .price-regular {
+      font-size: 0.95rem;
+      color: #9ca3af;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #6b7280;
+      margin: 0 6px;
+    }
+
+    .save-price {
+      color: #22c55e;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    .price-urgency {
+      font-size: 0.9rem;
+      color: #fb7185;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    /* ACCESS TEXT */
+    .offer-access {
+      font-size: 0.95rem;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+
+    /* CTA BUTTON */
+    .offer-cta {
+      background: #f59e0b;
+      color: #111827;
+      border: none;
+      padding: 20px 44px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+    }
+
+    .offer-cta:hover {
+      background: #fb923c;
+      transform: scale(1.03);
+    }
+
+    .offer-cta .cta-sub {
+      font-size: 0.95rem;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+
+    /* SECURITY + GUARANTEE */
+    .offer-secure {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .offer-guarantee {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #d1d5db;
+		background: #052e16;
+		border: 1px solid #166534;
+		padding: 12px;
+		border-radius: 8px;
+    }
+	
+
+    .guarantee-icon {
+      color: #22c55e;
+	font-size: 1.2rem;
+	font-weight: 900;
+      margin-right: 4px;
+    }
+
+    /* ================= CONTENT SECTION ================= */
+    .content-section {
+      padding: 90px 20px;
+      background: #0f172a;
+    }
+
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .content-sub {
+      font-size: 1.15rem;
+      color: #d1d5db;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .day-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: left;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .day-card:hover {
+      transform: translateY(-4px);
+      border-color: #f59e0b;
+    }
+
+    .day-label {
+      display: inline-block;
+      background: #f59e0b;
+      color: #111827;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .day-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #f9fafb;
+    }
+
+    .day-card p {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    /* CONTENT CTA */
+    .content-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .content-cta p {
+      font-size: 1.05rem;
+      color: #d1d5db;
+      margin-bottom: 20px;
+    }
+
+    /* ================= GUARANTEE SECTION ================= */
+    .guarantee-section {
+      padding: 90px 20px;
+      background: #020617;
+      text-align: center;
+    }
+
+    .guarantee-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .guarantee-image {
+      margin-bottom: 30px;
+    }
+
+    .guarantee-image img {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+    }
+
+    .guarantee-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #f9fafb;
+    }
+
+    .guarantee-intro {
+      font-size: 1.05rem;
+      color: #d1d5db;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    /* GUARANTEE STEPS */
+    .guarantee-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 25px;
+    }
+
+    .guarantee-step {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .guarantee-step span {
+      background: #f59e0b;
+      color: #111827;
+      font-weight: 900;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 0.95rem;
+    }
+
+    /* GUARANTEE BENEFITS */
+    .guarantee-benefits {
+      list-style: none;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      text-align: left;
+    }
+
+    .guarantee-benefits li {
+      margin-bottom: 10px;
+      padding-left: 18px;
+      position: relative;
+      color: #d1d5db;
+    }
+
+    .guarantee-benefits li::before {
+      content: "•";
+      color: #9ca3af;
+      font-size: 1.3rem;
+      line-height: 1;
+      position: absolute;
+      left: 0;
+    }
+
+    /* GUARANTEE REFUND COPY */
+    .guarantee-refund {
+      font-size: 1.05rem;
+      color: #f9fafb;
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    .guarantee-refund a {
+      color: #f59e0b;
+      text-decoration: none;
+    }
+
+    .guarantee-refund a:hover {
+      text-decoration: underline;
+    }
+
+    .guarantee-safe {
+      font-size: 0.95rem;
+      color: #9ca3af;
+      margin-bottom: 20px;
+    }
+
+    /* ================= MOBILE RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      .headline-section h1 {
+        font-size: 2.2rem;
+      }
+
+      .headline-sub {
+        font-size: 1.1rem;
+      }
+
+      .proof-header {
+        justify-content: center;
+      }
+
+      .proof-block {
+        text-align: center;
+      }
+
+      .offer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .offer-bullets {
+        text-align: left;
+        display: inline-block;
+      }
+
+      .content-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .guarantee-section h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADLINE SECTION ================= -->
+  <section class="headline-section">
+    <div class="headline-container">
+
+      <h1>Nieświadomie ustawiasz swoje dziecko na przeciętność</h1>
+
+      <p class="headline-sub">
+        Ten 10-dniowy protokół pokazuje dokładnie, co robić, żeby ustawić Twoje dziecko na drodze do sukcesu i szczęścia, unikając nieświadomych błędów wychowawczych.
+      </p>
+
+      <p class="headline-fantasy">
+        Co by było, gdybyś mógł uniknąć błędów, które sabotują przyszłość Twojego dziecka?
+      </p>
+
+      <!-- SOCIAL PROOF -->
+      <div class="proof-block">
+        <div class="proof-header">
+          <img class="proof-img" src="mama2.png" alt="Katarzyna Lewandowska">
+          <div class="proof-name-verified">
+            Katarzyna Lewandowska
+            <img src="verified.png" class="verified-img" alt="verified">
+          </div>
+        </div>
+
+        <div class="proof-quote">
+          „Jako mama dwójki dzieci zawsze zastanawiałam się, czy nie popełniam błędów, które zniszczą ich przyszłość.
+          Ten protokół pokazał mi konkretne rzeczy, które mogę robić codzienie, żeby nastawić moje dzieci na sukces i szczęśliwą przyszłość."
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OFFER SECTION ================= -->
+  <section class="offer-section">
+    <div class="offer-container">
+
+      <div class="offer-grid">
+
+        <!-- LEFT: COVER -->
+        <div class="offer-cover">
+          <img src="ebook-cover.png" alt="Kod Sukcesu Dziecka" class="offer-cover-img">
+        </div>
+
+        <!-- RIGHT: COPY -->
+        <div class="offer-copy">
+
+          <h2>Kod Sukcesu Dziecka</h2>
+
+          <p class="offer-promise">
+            10-dniowy protokół, który ustawia Twoje dziecko na trajektorii sukcesu, ambicji i wysokich standardów.
+          </p>
+
+          <ul class="offer-bullets">
+            <li>Ustaw swoje dziecko na drodze do sukcesu już teraz – bez terapii, coachingu i skomplikowanych metod</li>
+            <li>Zbuduj u dziecka naturalną pewność siebie i odporność psychiczną od najmłodszych lat</li>
+            <li>Poznaj mikrointerwencje, które działają w 10 minut dziennie i kształtują mentalność zwycięzcy</li>
+            <li>Naucz dziecko ambicji, wysokich standardów i odpowiedzialności za własne życie</li>
+            <li>Uniknij błędów wychowawczych, które sabotują przyszły sukces dziecka (nawet jeśli robisz je nieświadomie)</li>
+            <li>Zobacz, jak wychować dziecko, które radzi sobie z presją, porażką i konkurencją</li>
+            <li>Przestań zgadywać, co robić – dostaniesz gotowy system krok po kroku</li>
+            <li>Daj dziecku przewagę, której nie daje szkoła ani zajęcia dodatkowe</li>
+          </ul>
+
+          <!-- PRICE -->
+          <div class="offer-price-box">
+            <div class="price-today">
+              TYLKO DZISIAJ:<br>
+              <span>39,99 zł</span>
+            </div>
+
+            <div class="price-regular">
+              Cena regularna: <span class="old-price">149,99 zł</span><br>
+              <span class="save-price">OSZCZĘDZASZ 110 ZŁ!</span>
+            </div>
+
+            <div class="price-urgency">⏰ Zniżka kończy się dziś o 23:59</div>
+          </div>
+
+          <p class="offer-access">
+            Natychmiastowy dostęp. Pobierz teraz i zacznij czytać w ciągu 2 minut.
+          </p>
+
+          <!-- CTA -->
+          <button class="offer-cta">
+            POBIERZ TERAZ
+          </button>
+
+          <div class="offer-secure">
+            🔒 Bezpieczna i szyfrowana płatność
+          </div>
+
+          <div class="offer-guarantee">
+            <span class="guarantee-icon">✔</span>
+            <strong>100% Gwarancji Satysfakcji</strong> – Wypróbuj bez ryzyka. Zobacz rezultaty albo otrzymaj pełny zwrot pieniędzy.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTENT SECTION ================= -->
+  <section class="content-section">
+    <div class="content-container">
+
+      <h2>Co dokładnie dostaniesz w „Kodzie Sukcesu Dziecka"</h2>
+      <p class="content-sub">
+        10-dniowy protokół z konkretnymi mikrointerwencjami, które stopniowo budują u dziecka mentalność sukcesu, ambicję i odporność psychiczną.
+      </p>
+
+      <div class="timeline">
+
+        <div class="day-card">
+          <span class="day-label">Dzień 1</span>
+          <h3>Fundament mentalności sukcesu</h3>
+          <p>Jak ustawić dziecko na długoterminowe myślenie i wysokie standardy już od pierwszego dnia.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 2</span>
+          <h3>Budowanie pewności siebie</h3>
+          <p>Codzienne mikrointerwencje, które tworzą wewnętrzne poczucie wartości i sprawczości.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 3</span>
+          <h3>Odporność na porażki i stres</h3>
+          <p>Jak nauczyć dziecko traktować porażkę jako informację zwrotną, a nie zagrożenie.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 4</span>
+          <h3>Ambicja i wysokie standardy</h3>
+          <p>Jak zaszczepić naturalną potrzebę rozwoju zamiast przymusu z zewnątrz.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 5</span>
+          <h3>Odpowiedzialność za własne życie</h3>
+          <p>Mikrointerwencje, które budują u dziecka poczucie kontroli i decyzyjności.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 6</span>
+          <h3>Motywacja wewnętrzna</h3>
+          <p>Jak sprawić, żeby dziecko chciało działać, nawet bez nagród i kar.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 7</span>
+          <h3>Relacja z presją i konkurencją</h3>
+          <p>Jak przygotować dziecko do świata pełnego wymagań i porównań.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 8</span>
+          <h3>Komunikacja, która buduje mentalność zwycięzcy</h3>
+          <p>Gotowe scenariusze rozmów, które kształtują sposób myślenia dziecka.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 9</span>
+          <h3>Przerywanie negatywnych schematów rodzinnych</h3>
+          <p>Jak nieświadomie nie przekazywać dziecku własnych ograniczeń i lęków.</p>
+        </div>
+
+        <div class="day-card">
+          <span class="day-label">Dzień 10</span>
+          <h3>Plan długoterminowego rozwoju dziecka</h3>
+          <p>Jak utrzymać efekty i rozwijać mentalność sukcesu przez kolejne lata.</p>
+        </div>
+
+      </div>
+
+      <div class="content-cta">
+        <p>Każdy dzień zajmuje około 10 minut i zawiera konkretne instrukcje do wdrożenia od razu.</p>
+        <button class="offer-cta">POBIERZ TERAZ</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= GUARANTEE SECTION ================= -->
+  <section class="guarantee-section">
+    <div class="guarantee-container">
+
+      <!-- GUARANTEE IMAGE -->
+      <div class="guarantee-image">
+        <img src="guarantee.png" alt="Gwarancja Satysfakcji">
+      </div>
+
+      <h2>30-dniowa bezwarunkowa gwarancja satysfakcji</h2>
+
+      <p class="guarantee-intro">
+        „Kod Sukcesu Dziecka" powstał na podstawie praktyki skutecznych rodziców oraz nowoczesnych koncepcji psychologii rozwoju i nawyków.
+        Wierzę, że zastosowanie tego systemu może przynieść realne, długoterminowe korzyści dla Twojego dziecka.
+        Dlatego oferuję 30-dniową, bezwarunkową gwarancję satysfakcji.
+      </p>
+
+      <div class="guarantee-steps">
+        <div class="guarantee-step">
+          <span>1</span> Pobierz ebook i zastosuj protokół przez kilka dni
+        </div>
+        <div class="guarantee-step">
+          <span>2</span> Obserwuj zmiany w zachowaniu i podejściu dziecka
+        </div>
+        <div class="guarantee-step">
+          <span>3</span> Oceń, czy widzisz pierwsze efekty
+        </div>
+      </div>
+
+      <ul class="guarantee-benefits">
+        <li>Lepsze radzenie sobie z trudnościami i frustracją</li>
+        <li>Większą chęć podejmowania wyzwań i nauki</li>
+        <li>Większą pewność siebie i samodzielność</li>
+        <li>Zdrowszą relację z porażką i presją</li>
+      </ul>
+
+      <p class="guarantee-refund">
+        Jeśli nie zauważysz żadnej z tych zmian, po prostu napisz na 
+        <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a7175746e7b716e5a6e6d75707b7e75777f747b346a76">[email&#160;protected]</a></strong>, a zwrócę Ci pełną kwotę zakupu – bez pytań, bez warunków, bez tłumaczenia się.
+      </p>
+
+      <p class="guarantee-safe">
+        Chcę, żeby każdy rodzic czuł się w 100% bezpiecznie, testując ten protokół.
+      </p>
+
+      <button class="offer-cta">
+        POBIERZ TERAZ<br>
+        <span class="cta-sub">bez ryzyka</span>
+      </button>
+
+    </div>
+  </section>
+
+</body>
+</html>
