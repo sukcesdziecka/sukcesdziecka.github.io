@@ -560,6 +560,11 @@
 	src="https://www.facebook.com/tr?id=900385469062167&ev=PageView&noscript=1"
 	/></noscript>
 	<!-- End Meta Pixel Code -->
+	<script>
+document.getElementById("buy-button").addEventListener("click", function() {
+  fbq('track', 'InitiateCheckout');
+});
+</script>
 </head>
 
 <body>
@@ -648,7 +653,7 @@
           </p>
 
           <!-- CTA -->
-          <button class="offer-cta">
+          <button class="offer-cta" id="buy-button">
             POBIERZ TERAZ
           </button>
 
@@ -743,7 +748,7 @@
 
       <div class="content-cta">
         <p>Każdy dzień zajmuje około 10 minut i zawiera konkretne instrukcje do wdrożenia od razu.</p>
-        <button class="offer-cta">POBIERZ TERAZ</button>
+        <button class="offer-cta" id="buy-button">POBIERZ TERAZ</button>
       </div>
 
     </div>
@@ -794,7 +799,7 @@
         Chcę, żeby każdy rodzic czuł się w 100% bezpiecznie, testując ten protokół.
       </p>
 
-      <button class="offer-cta">
+      <button class="offer-cta" id="buy-button">
         POBIERZ TERAZ<br>
         <span class="cta-sub">bez ryzyka</span>
       </button>
