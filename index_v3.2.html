@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kod Sukcesu Dziecka — Prosty protokół na 10 dni</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    /* ================= GLOBAL RESET ================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: #fdfcfb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #fffbeb 0%, #fdfcfb 100%);
+    }
+
+    .hero-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* HERO IMAGE */
+    .hero-image {
+      margin-bottom: 30px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-image-placeholder {
+      background: #fef3c7;
+      border: 2px dashed #f59e0b;
+      border-radius: 12px;
+      padding: 60px 30px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .hero-image-placeholder p {
+      color: #92400e;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* STORY HEADLINE */
+    .hero-story {
+      font-size: 0.95rem;
+      color: #d97706;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .hero-section h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      color: #111827;
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      color: #374151;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* PROBLEM BULLETS */
+    .hero-problem {
+      background: #ffffff;
+      border: 2px solid #fde68a;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-problem h3 {
+      font-size: 1.1rem;
+      color: #d97706;
+      margin-bottom: 16px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .hero-problem ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-problem li {
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1rem;
+      color: #1f2937;
+      line-height: 1.5;
+    }
+
+    .hero-problem li::before {
+      content: "❌";
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+
+    /* SOLUTION */
+    .hero-solution {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      border: 2px solid #10b981;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    }
+
+    .hero-solution h3 {
+      font-size: 1.3rem;
+      color: #065f46;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero-solution p {
+      font-size: 1.05rem;
+      color: #047857;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* PRICE BOX */
+    .hero-price {
+      background: #ffffff;
+      border: 3px solid #f59e0b;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+    }
+
+    .price-label {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .price-old {
+      font-size: 1.1rem;
+      color: #9ca3af;
+      text-decoration: line-through;
+      margin-bottom: 8px;
+    }
+
+    .price-new {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #f59e0b;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .price-save {
+      font-size: 1.1rem;
+      color: #10b981;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .price-urgency {
+      background: #fef2f2;
+      border: 2px solid #fca5a5;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 0.95rem;
+      color: #991b1b;
+      line-height: 1.6;
+    }
+
+    .price-urgency strong {
+      color: #7f1d1d;
+      font-size: 1.05rem;
+    }
+
+    /* CTA BUTTON */
+    .cta-button {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff;
+      border: none;
+      padding: 24px 50px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 16px;
+      white-space: nowrap;
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(245, 158, 11, 0.4);
+    }
+
+    .cta-sub {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 8px;
+      opacity: 0.95;
+    }
+
+    /* TRUST BADGES */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .trust-badges span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* PAYMENT ICONS */
+    .payment-icons {
+      margin-top: 16px;
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .payment-icons-placeholder {
+      background: #fef3c7;
+      border: 2px dashed #f59e0b;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 16px;
+    }
+
+    .payment-icons-placeholder p {
+      color: #92400e;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* GUARANTEE */
+    .hero-guarantee {
+      background: #d1fae5;
+      border: 2px solid #10b981;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 0.95rem;
+      color: #065f46;
+      box-shadow: 0 4px 8px rgba(16, 185, 129, 0.1);
+    }
+
+    .hero-guarantee strong {
+      color: #047857;
+      font-size: 1.1rem;
+    }
+
+    /* ================= STORY SECTION ================= */
+    .story-section {
+      padding: 90px 20px;
+      background: #ffffff;
+    }
+
+    .story-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* STORY IMAGE */
+    .story-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .story-image-placeholder {
+      background: #fef3c7;
+      border: 2px dashed #f59e0b;
+      border-radius: 16px;
+      padding: 60px 30px;
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .story-image-placeholder p {
+      color: #92400e;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .story-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #374151;
+    }
+
+    .story-content p {
+      margin-bottom: 24px;
+    }
+
+    .story-content strong {
+      color: #111827;
+      font-weight: 700;
+    }
+
+    .story-content em {
+      color: #d97706;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .story-divider {
+      width: 60px;
+      height: 4px;
+      background: #f59e0b;
+      margin: 40px 0;
+      border-radius: 2px;
+    }
+
+    /* ================= TRANSITION SECTION ================= */
+    .transition-section {
+      padding: 90px 20px;
+      background: #fffbeb;
+      text-align: center;
+    }
+
+    .transition-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .transition-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      line-height: 1.3;
+      color: #111827;
+    }
+
+    .transition-checklist {
+      background: #ffffff;
+      border: 2px solid #fde68a;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .transition-checklist ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .transition-checklist li {
+      margin-bottom: 14px;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.05rem;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .transition-checklist li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #f59e0b;
+      font-weight: 900;
+      font-size: 1.3rem;
+    }
+
+    .transition-warning {
+      background: #fef2f2;
+      border: 3px solid #fca5a5;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+    }
+
+    .transition-warning p {
+      font-size: 1.15rem;
+      color: #991b1b;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .transition-warning strong {
+      color: #7f1d1d;
+      font-size: 1.25rem;
+    }
+
+    /* ================= PROOF SECTION ================= */
+    .proof-section {
+      padding: 90px 20px;
+      background: #ffffff;
+    }
+
+    .proof-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .proof-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #111827;
+    }
+
+    /* CASE STUDY */
+    .case-study {
+      background: #fffbeb;
+      border: 3px solid #fbbf24;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 8px 20px rgba(251, 191, 36, 0.15);
+    }
+
+    .case-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .case-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f59e0b;
+    }
+
+    .case-info h3 {
+      font-size: 1.3rem;
+      color: #d97706;
+      margin-bottom: 4px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .verified-badge {
+      width: 22px;
+      height: 22px;
+      margin-left: 3px;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .case-info p {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .case-quote {
+      font-size: 1.1rem;
+      color: #1f2937;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .case-results {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .case-results h4 {
+      font-size: 1rem;
+      color: #d97706;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .case-results ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .case-results li {
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .case-results li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      font-size: 1rem;
+    }
+
+    /* ================= OFFER SECTION ================= */
+    .offer-section {
+      padding: 90px 20px;
+      background: #fffbeb;
+    }
+
+    .offer-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .offer-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .offer-intro {
+      font-size: 1.15rem;
+      color: #374151;
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* TRANSFORMATION GRID */
+    .transformation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
+      text-align: left;
+    }
+
+    .transform-card {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .transform-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .transform-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .transform-label {
+      font-size: 0.85rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .transform-label.before {
+      color: #ef4444;
+    }
+
+    .transform-label.after {
+      color: #10b981;
+    }
+
+    .transform-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .transform-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .transform-card ul li {
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .transform-card ul li::before {
+      position: absolute;
+      left: 0;
+      font-size: 1rem;
+    }
+
+    .transform-card.before {
+      border-color: #fca5a5;
+      background: #fef2f2;
+    }
+
+    .transform-card.after {
+      border-color: #6ee7b7;
+      background: #d1fae5;
+    }
+
+    .transform-card.before li::before {
+      content: "❌";
+    }
+
+    .transform-card.after li::before {
+      content: "✅";
+    }
+
+    /* ================= CONTENT SECTION ================= */
+    .content-section {
+      padding: 90px 20px;
+      background: #ffffff;
+    }
+
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .content-sub {
+      font-size: 1.1rem;
+      color: #374151;
+      margin-bottom: 50px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .day-card {
+      background: #ffffff;
+      border: 2px solid #fde68a;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: left;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .day-card:hover {
+      transform: translateY(-3px);
+      border-color: #fbbf24;
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.15);
+    }
+
+    .day-icon {
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .day-content h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .day-label {
+      display: inline-block;
+      background: #fbbf24;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 5px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .day-content p {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ================= GUARANTEE SECTION ================= */
+    .guarantee-section {
+      padding: 60px 20px 90px;
+      background: #fffbeb;
+      text-align: center;
+    }
+
+    .guarantee-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* GUARANTEE IMAGE */
+    .guarantee-image {
+      margin-bottom: 20px;
+    }
+
+    .guarantee-image img {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+    }
+
+    .guarantee-image-placeholder {
+      background: #d1fae5;
+      border: 2px dashed #10b981;
+      border-radius: 16px;
+      padding: 60px 30px;
+      margin: 0 auto 40px;
+      max-width: 300px;
+    }
+
+    .guarantee-image-placeholder p {
+      color: #065f46;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .guarantee-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      color: #111827;
+    }
+
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .guarantee-item {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .guarantee-item:hover {
+      transform: translateY(-4px);
+      border-color: #fbbf24;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .guarantee-item .icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .guarantee-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .guarantee-item p {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .guarantee-promise {
+      background: #ffffff;
+      border: 3px solid #10b981;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    }
+
+    .guarantee-promise p {
+      font-size: 1.15rem;
+      color: #1f2937;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .guarantee-promise strong {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .guarantee-promise a {
+      color: #d97706;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .guarantee-promise a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= MOBILE RESPONSIVE ================= */
+    .mobile-break {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-break {
+        display: block;
+      }
+
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .hero-sub {
+        font-size: 1.1rem;
+      }
+
+      .price-new {
+        font-size: 2.2rem;
+      }
+
+      .cta-button {
+        font-size: 1rem;
+        padding: 20px 30px;
+        white-space: normal;
+      }
+
+      .story-image-placeholder {
+        padding: 40px 20px;
+      }
+
+      .transformation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .case-info h3 {
+        justify-content: center;
+        font-size: 1.1rem;
+      }
+
+      .verified-badge {
+        width: 20px;
+        height: 20px;
+        margin-left: 2px;
+      }
+
+      .trust-badges {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .trust-badges span {
+        justify-content: center;
+      }
+
+      .guarantee-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .day-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .day-icon {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '900385469062167');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=900385469062167&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <script>
+  fbq('track', 'ViewContent');
+  </script>
+
+  <!-- CHECKOUT TRACKING -->
+  <script>
+  function handleCheckout() {
+    var redirected = false;
+    var checkoutUrl = 'https://www.naffy.io/mateusz-YrIY2/kod-sukcesu-dziecka-Y1jR-HlPm';
+    
+    fbq('track', 'InitiateCheckout', {}, function() {
+      if (!redirected) {
+        redirected = true;
+        window.location.href = checkoutUrl;
+      }
+    });
+    
+    setTimeout(function() {
+      if (!redirected) {
+        redirected = true;
+        window.location.href = checkoutUrl;
+      }
+    }, 500);
+  }
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vanbpozm3p");
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCGQ54XDEW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GCGQ54XDEW');
+  </script>
+</head>
+
+<body>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section">
+    <div class="hero-container">
+
+      <!-- HERO IMAGE -->
+      <div class="hero-image">
+        <img src="picture1.png" alt="Mama z synem" loading="eager">
+      </div>
+
+      <div class="hero-story">Historia prawdziwej mamy</div>
+
+      <h1>
+        Mój syn miał 8 lat, kiedy nauczycielka powiedziała:<br>
+        "Obawiam się, że Pani syn ma problem z pewnością siebie."
+      </h1>
+
+      <p class="hero-sub">
+        Byłam w szoku. Myślałam, że jest po prostu nieśmiały.<br>
+        Po trzech tygodniach zobaczyłam zmianę — sam zgłosił się na lekcji.<br>
+        <strong>Oto prosty protokół, który mi pomógł.</strong>
+      </p>
+
+      <!-- PROBLEM -->
+      <div class="hero-problem">
+        <h3>Czy Twoje dziecko:</h3>
+        <ul>
+          <li>Mówi "cokolwiek", "nie wiem", "jak chcesz", zamiast wyrażać swoje własne zdanie?</li>
+          <li>Rezygnuje zanim spróbuje, bo<br class="mobile-break"> "i tak się nie uda"?</li>
+          <li>Chowa się zamiast zgłaszać, bo boi się pomyłki?</li>
+          <li>Boi się podejmować samodzielne decyzje?</li>
+        </ul>
+      </div>
+
+      <!-- SOLUTION -->
+      <div class="hero-solution">
+        <h3>✓ To nie jest nieśmiałość. To wyuczona bezradność.</h3>
+        <p>
+          Ale możesz to zmienić. Ten 10-dniowy protokół pokazuje dokładnie, 
+          jak nauczyć dziecko, że jego głos ma znaczenie —<br class="mobile-break">
+          <strong>w 10 minut dziennie, bez psychologa, bez skomplikowanych teorii.</strong>
+        </p>
+      </div>
+
+      <!-- PRICE -->
+      <div class="hero-price">
+        <div class="price-label">OFERTA WPROWADZAJĄCA — TYLKO DZIŚ</div>
+        <div class="price-old">Wartość regularna: 497 zł</div>
+        <div class="price-new">39,99 zł</div>
+        <div class="price-save">Oszczędzasz 457 zł<br>(92% taniej!)</div>
+        
+        <div class="price-urgency">
+          ⏰ <strong>Promocja kończy się dziś o 23:59</strong><br>
+          🔥 Po tej godzinie cena <br class="mobile-break">wraca do 497 zł<br>
+          💥 Zostało tylko <span id="copies-left">7</span> egzemplarzy<br class="mobile-break">w tej cenie
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <button class="cta-button" onclick="handleCheckout();">
+        ODBIERZ PROTOKÓŁ TERAZ →
+      </button>
+
+      <!-- TRUST -->
+      <div class="trust-badges">
+        <span>🔒 Bezpieczna płatność</span>
+        <span>✅ Natychmiastowy dostęp</span>
+        <span>📩 Wysyłka na Twój email w ciągu minuty</span>
+      </div>
+
+      <!-- PAYMENT ICONS -->
+      <div class="payment-icons">
+        <img src="payment-methods.png" alt="Metody płatności: Visa, Mastercard, Blik, PayU" style="max-width: 280px; width: 100%; height: auto;">
+      </div>
+
+      <!-- GUARANTEE -->
+      <div class="hero-guarantee">
+        <strong>✓ 30 dni gwarancji rezultatów</strong><br>
+        Nie widzisz zmian u swojego dziecka? Po prostu napisz do nas, a zwrócimy Ci pieniądze. Chcemy, żeby rodzice czuli się bezpiecznie testując nasz produkt.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= STORY SECTION ================= -->
+  <section class="story-section">
+    <div class="story-container">
+      
+      <!-- STORY IMAGE -->
+      <div class="story-image">
+        <img src="picture2.png" alt="Dziecko w klasie" loading="lazy">
+      </div>
+
+      <!-- STORY TEXT (RIGHT) -->
+      <div class="story-content">
+        
+        <p>
+          Siedziałam na wywiadówce, kiedy pani od polskiego powiedziała:<br>
+          <strong>"Chciałabym z Panią porozmawiać o Pani synu."</strong>
+        </p>
+
+        <p>
+          Serce mi zamarło. "Co się stało?"
+        </p>
+
+        <p>
+          "Nic złego. Po prostu... <em>obawiam się, że ma problem z pewnością siebie.</em> 
+          Zna odpowiedzi — widzę to po jego twarzy. Ale nigdy się nie zgłasza. 
+          Kiedy pytam go bezpośrednio, mówi cicho, jakby bał się, że powie coś źle.
+          A na przerwie... stoi z boku i czeka, aż ktoś go zawoła."
+        </p>
+
+        <p>
+          Ja: "Ale... on jest po prostu nieśmiały. Zawsze taki był."
+        </p>
+
+        <p>
+          Ona: <strong>"To nie jest nieśmiałość. Nieśmiałe dziecko próbuje, mimo że się boi. 
+          Pani syn... <em>nawet nie próbuje.</em> Jakby się poddał, zanim zaczął."</strong>
+        </p>
+
+        <p>
+          <strong>I wtedy coś mnie ścisnęło.</strong>
+        </p>
+
+        <p>
+          Bo miała rację.
+        </p>
+
+        <div class="story-divider"></div>
+
+        <p>
+          Wróciłam do domu i zaczęłam obserwować.
+        </p>
+
+        <p>
+          Pytam: <em>"Co chcesz na obiad?"</em><br>
+          On: "Cokolwiek."
+        </p>
+
+        <p>
+          <em>"Ale CO TY chcesz?"</em><br>
+          "Nie wiem."
+        </p>
+
+        <p>
+          Pytam: <em>"Idziemy do kina czy na basen?"</em><br>
+          On: "Jak chcesz."
+        </p>
+
+        <p>
+          <strong>I zrozumiałam.</strong>
+        </p>
+
+        <p>
+          On nie mówi "nie wiem", bo naprawdę nie wie.<br>
+          <strong>On mówi "nie wiem", bo nauczył się, że jego zdanie nie ma znaczenia.</strong>
+        </p>
+
+        <p>
+          Że łatwiej zgodzić się z kimś innym, niż ryzykować, że powie coś "źle".<br>
+          Że bezpieczniej jest nie próbować, niż spróbować i się pomylić.
+        </p>
+
+        <p>
+          <strong>To nie był problem z nieśmiałością.<br>
+          To był problem z pewnością siebie.</strong>
+        </p>
+
+        <div class="story-divider"></div>
+
+        <p>
+          Musiałam to naprawić.
+        </p>
+
+        <p>
+          Znalazłam prosty przewodnik, który pokazał mi dokładnie, 
+          <strong>jak zbudować u dziecka naturalną pewność siebie.</strong>
+        </p>
+
+        <p>
+          10 minut dziennie. Konkretne mikrointerwencje. Nic skomplikowanego.
+        </p>
+
+        <p>
+          <strong>Po trzech tygodniach nauczycielka zadzwoniła:</strong><br>
+          "Dzwonię, bo chciałam Pani powiedzieć — Pani syn dzisiaj się zgłosił. 
+          Sam, bez pytania. I odpowiedział pewnie, spokojnie. Myślałam, że będzie Pani chciała wiedzieć."
+        </p>
+
+        <p>
+          Płakałam.
+        </p>
+
+        <p>
+          <strong>Bo to była taka mała rzecz. Ale dla mnie to było wszystko.</strong>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRANSITION SECTION ================= -->
+  <section class="transition-section">
+    <div class="transition-container">
+
+      <h2>Jeśli Twoje dziecko robi to samo...</h2>
+
+      <div class="transition-checklist">
+        <ul>
+          <li>Mówi "cokolwiek", "nie wiem", "jak chcesz", zamiast wyrażać opinię</li>
+          <li>Nie wyraża zdania, nie wybiera, nie próbuje</li>
+          <li>Zgadza się, choć nie chce, żeby uniknąć konfliktu</li>
+          <li>Rezygnuje przed próbą, bo "i tak się nie uda"</li>
+          <li>"Chowa się" zamiast zgłaszać, bo boi się pomyłki</li>
+        </ul>
+      </div>
+
+      <div class="transition-warning">
+        <p>
+          <strong>To nie jest faza. To nie minie samo.</strong><br><br>
+          To mechanizm, który się utrwala. I im dłużej czekasz, tym trudniej go odwrócić.<br><br>
+          Ale jest prosty sposób, żeby to zmienić.
+        </p>
+      </div>
+
+      <button class="cta-button" onclick="handleCheckout();">
+        POKAŻ MI, JAK TO NAPRAWIĆ
+        <span class="cta-sub">39,99 zł → Dostęp natychmiast</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ================= PROOF SECTION ================= -->
+  <section class="proof-section">
+    <div class="proof-container">
+
+      <h2>Konkretne rezultaty prawdziwych rodziców</h2>
+
+      <!-- CASE STUDY -->
+      <div class="case-study">
+        <div class="case-header">
+          <img src="mama2.png" alt="Ania Dąbrowska" class="case-img">
+          <div class="case-info">
+            <h3>
+              Ania Dąbrowska<img src="verified.png" alt="verified" class="verified-badge">
+            </h3>
+            <p>Mama 8-letniego Michała</p>
+          </div>
+        </div>
+
+        <div class="case-quote">
+          "Mój syn po 10 dniach zaczął <strong>SAM</strong> podejmować trudniejsze zadania. 
+          Nie mogę uwierzyć, że tak proste zmiany w codziennych rozmowach dały taki efekt. 
+          To nie jest teoria — to konkretne słowa i sytuacje, które działają od razu."
+        </div>
+
+        <div class="case-results">
+          <h4>Konkretne zmiany po 10 dniach:</h4>
+          <ul>
+            <li>Przeczytała protokół w 2 wieczory</li>
+            <li>Pierwsze zmiany w zachowaniu syna po tygodniu</li>
+            <li>Syn zmotywowany bez nagród i kar</li>
+            <li>"Mamo, ja to sam zrobię" — słyszy to codziennie</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OFFER SECTION ================= -->
+  <section class="offer-section">
+    <div class="offer-container">
+
+      <h2>Transformacja Twojego dziecka w 10 dni</h2>
+
+      <p class="offer-intro">
+        Ten protokół nie uczy Cię teorii. Pokazuje dokładnie, <strong>CO mówić i JAK reagować</strong> 
+        w codziennych sytuacjach, żeby zbudować u dziecka pewność siebie, ambicję i odporność.
+      </p>
+
+      <!-- BEFORE/AFTER -->
+      <div class="transformation-grid">
+        
+        <div class="transform-card before">
+          <div class="transform-icon">😔</div>
+          <div class="transform-label before">❌ PRZED</div>
+          <h3>Wyuczona bezradność</h3>
+          <ul>
+            <li>"Nie wiem" na każde pytanie</li>
+            <li>Rezygnacja przed próbą</li>
+            <li>Zgoda na wszystko, żeby uniknąć konfliktu</li>
+            <li>Brak wiary w siebie</li>
+          </ul>
+        </div>
+
+        <div class="transform-card after">
+          <div class="transform-icon">😊</div>
+          <div class="transform-label after">✅ PO</div>
+          <h3>Naturalna pewność siebie</h3>
+          <ul>
+            <li>"Chcę spróbować" bez proszenia</li>
+            <li>Podejmowanie wyzwań samodzielnie</li>
+            <li>Wyrażanie zdania, nawet jeśli inne</li>
+            <li>Wiara, że "dam radę"</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <button class="cta-button" onclick="handleCheckout();">
+        ZACZNIJ TRANSFORMACJĘ TERAZ
+        <span class="cta-sub">39,99 zł → Zamiast 497 zł</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTENT SECTION ================= -->
+  <section class="content-section">
+    <div class="content-container">
+
+      <h2>Co dokładnie dostaniesz w protokole</h2>
+
+      <p class="content-sub">
+        10-dniowy system mikrointerwencji, które stopniowo budują u dziecka 
+        mentalność sukcesu, ambicję i odporność psychiczną.
+      </p>
+
+      <div class="timeline">
+
+        <div class="day-card">
+          <div class="day-icon">🧠</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 1</span>
+            <h3>Fundament mentalności sukcesu</h3>
+            <p>Jak ustawić dziecko na długoterminowe myślenie i wysokie standardy już od pierwszego dnia.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">💪</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 2</span>
+            <h3>Budowanie pewności siebie</h3>
+            <p>Codzienne mikrointerwencje, które tworzą wewnętrzne poczucie wartości i sprawczości.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">🛡️</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 3</span>
+            <h3>Odporność na porażki i stres</h3>
+            <p>Jak nauczyć dziecko traktować porażkę jako informację zwrotną, a nie zagrożenie.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">🎯</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 4</span>
+            <h3>Ambicja i wysokie standardy</h3>
+            <p>Jak zaszczepić naturalną potrzebę rozwoju zamiast przymusu z zewnątrz.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">✊</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 5</span>
+            <h3>Odpowiedzialność za własne życie</h3>
+            <p>Mikrointerwencje, które budują u dziecka poczucie kontroli i decyzyjności.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">🔥</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 6</span>
+            <h3>Motywacja wewnętrzna</h3>
+            <p>Jak sprawić, żeby dziecko chciało działać, nawet bez nagród i kar.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">⚡</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 7</span>
+            <h3>Relacja z presją i konkurencją</h3>
+            <p>Jak przygotować dziecko do świata pełnego wymagań i porównań.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">💬</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 8</span>
+            <h3>Komunikacja, która buduje mentalność zwycięzcy</h3>
+            <p>Gotowe scenariusze rozmów, które kształtują sposób myślenia dziecka.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">🔗</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 9</span>
+            <h3>Przerywanie negatywnych schematów rodzinnych</h3>
+            <p>Jak nieświadomie nie przekazywać dziecku własnych ograniczeń i lęków.</p>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-icon">📈</div>
+          <div class="day-content">
+            <span class="day-label">Dzień 10</span>
+            <h3>Plan długoterminowego rozwoju dziecka</h3>
+            <p>Jak utrzymać efekty i rozwijać mentalność sukcesu przez kolejne lata.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="font-size: 1.1rem; color: #374151; margin-bottom: 30px;">
+        Każdy dzień zajmuje około 10 minut i zawiera konkretne instrukcje do wdrożenia od razu.
+      </p>
+
+      <button class="cta-button" onclick="handleCheckout();">
+        POBIERZ PROTOKÓŁ TERAZ
+        <span class="cta-sub">Ostatnie egzemplarze w promocyjnej cenie</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ================= GUARANTEE SECTION ================= -->
+  <section class="guarantee-section">
+    <div class="guarantee-container">
+
+      <!-- GUARANTEE IMAGE -->
+      <div class="guarantee-image">
+        <img src="guarantee.png" alt="30 dni gwarancji" loading="lazy">
+      </div>
+
+      <h2>30-dniowa bezwarunkowa gwarancja</h2>
+
+      <div class="guarantee-grid">
+        <div class="guarantee-item">
+          <div class="icon">📥</div>
+          <h4>Krok 1</h4>
+          <p>Pobierz protokół i zastosuj przez kilka dni</p>
+        </div>
+        <div class="guarantee-item">
+          <div class="icon">👀</div>
+          <h4>Krok 2</h4>
+          <p>Obserwuj zmiany w zachowaniu dziecka</p>
+        </div>
+        <div class="guarantee-item">
+          <div class="icon">✅</div>
+          <h4>Krok 3</h4>
+          <p>Oceń, czy widzisz pierwsze efekty</p>
+        </div>
+      </div>
+
+      <div class="guarantee-promise">
+        <p>
+          <strong>Jeśli nie zauważysz żadnych zmian</strong> takich jak — lepsze radzenie sobie z trudnościami, 
+          większą chęć podejmowania wyzwań, większą pewność siebie — 
+          po prostu napisz na <a href="mailto:sukcesdziecka@int.pl">sukcesdziecka@int.pl</a>, 
+          a zwrócę Ci pełną kwotę zakupu.<br><br>
+          <strong>Bez pytań. Bez warunków. Bez tłumaczenia się.</strong>
+        </p>
+      </div>
+
+      <p style="font-size: 1rem; color: #6b7280; margin-bottom: 30px;">
+        Chcę, żeby każdy rodzic czuł się w 100% bezpiecznie, testując ten protokół.
+      </p>
+
+      <button class="cta-button" onclick="handleCheckout();">
+        POBIERZ BEZ RYZYKA
+        <span class="cta-sub">30-dni gwarancji zwrotu</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- DYNAMIC COUNTER -->
+  <script>
+  // Fixed at 7 copies left
+  document.getElementById('copies-left').textContent = '7';
+  </script>
+
+</body>
+</html>
